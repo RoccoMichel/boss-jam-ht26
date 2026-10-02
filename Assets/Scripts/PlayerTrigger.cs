@@ -9,6 +9,7 @@ public class PlayerTrigger : MonoBehaviour
     public bool oneShot = true;
     public UnityEvent events = new();
     private bool triggered;
+    private Player player;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +18,7 @@ public class PlayerTrigger : MonoBehaviour
 
         if (debug) Debug.Log(gameObject.name + " triggered.");
         TriggerEvents();
+        player = other.GetComponent<Player>();
         triggered = true;
     }
 
@@ -24,6 +26,14 @@ public class PlayerTrigger : MonoBehaviour
 
     // Events
 
+    public void EnableAbility(string name)
+    {
+        player.ToggleAbility(name, true);
+    }
+    public void DisableAbility(string name)
+    {
+        player.ToggleAbility(name, false);
+    }
     public void Log(string message)
     {
         Debug.Log(message);

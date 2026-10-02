@@ -1,0 +1,3 @@
+* one list that manages abilites
+* show abilites on canvas
+* make enable ability bool work

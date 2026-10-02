@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CanvasController : MonoBehaviour
 {
     public static CanvasController instance;
+    LevelController.Ability[] abilities;
 
     private void Awake()
     {
@@ -30,6 +31,11 @@ public class CanvasController : MonoBehaviour
     public GameObject InstantiateMenu(string resourceName)
     {
         return Instantiate((GameObject)Resources.Load($"UI/{resourceName}"), transform);
+    }
+
+    public void InstantiateInputMenu(LevelController.Ability[] abilitiesList)
+    {
+        abilities = abilitiesList;
     }
 
     private void Reset()
