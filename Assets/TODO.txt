@@ -1,4 +1,0 @@
-DEADLINE: --/--/----
-______________________
-* This is a to-do list
-* Very advanced

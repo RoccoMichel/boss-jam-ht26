@@ -20,8 +20,6 @@ public class CanvasController : MonoBehaviour
         if (FindAnyObjectByType<EventSystem>() == null)
             Debug.LogWarning("No Event System in Scene!");
 
-        // EXAMPLE:
-        // InstantiateMenu("BasicMenu");
     }
 
     /// <summary>
