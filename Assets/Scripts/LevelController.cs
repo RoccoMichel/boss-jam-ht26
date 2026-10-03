@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    public List<Ability> availableAbilities;
-    [Serializable]
-    public struct Ability
-    {
-        public string name;
-        public bool discovered;
-    }
+    public Player player;
 
     private void Start()
     {
-        CanvasController.instance.InstantiateInputMenu(availableAbilities.ToArray());
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        CanvasController.instance.UpdateInputMenu(player.abilities.ToArray());
     }
 }

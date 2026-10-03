@@ -1,12 +1,14 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class CanvasController : MonoBehaviour
 {
     public static CanvasController instance;
-    LevelController.Ability[] abilities;
+    [SerializeField] private List<GameObject> abilityElements = new();
+    [SerializeField] private GameObject inputGroup;
 
     private void Awake()
     {
@@ -33,9 +35,32 @@ public class CanvasController : MonoBehaviour
         return Instantiate((GameObject)Resources.Load($"UI/{resourceName}"), transform);
     }
 
-    public void InstantiateInputMenu(LevelController.Ability[] abilitiesList)
+    public GameObject InstantiateMenu(string resourceName, GameObject parent)
     {
-        abilities = abilitiesList;
+        return Instantiate((GameObject)Resources.Load($"UI/{resourceName}"), parent.transform);
+    }
+
+    public void UpdateInputMenu(Player.Ability[] abilitiesList)
+    {
+        for (int i = 0; abilityElements.Count > 0; i = 0)
+        {
+            Destroy(abilityElements[i]);
+            abilityElements.RemoveAt(i);
+        }
+
+        foreach(Player.Ability a in abilitiesList)
+        {
+            if (!a.enable) continue;
+
+            GameObject go = InstantiateMenu("Ability Element", inputGroup);
+            go.GetComponent<AbilityUI>().SetAbility(a);
+            abilityElements.Add(go);
+        }
+    }
+
+    public void UpdateInputMenu(Player.Ability[] abilitiesList, int index)
+    {
+        abilityElements[index].GetComponent<AbilityUI>().SetAbility(abilitiesList[index]);
     }
 
     private void Reset()

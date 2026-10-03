@@ -1,3 +1,1 @@
-* one list that manages abilites
-* show abilites on canvas
-* make enable ability bool work
+* Set camera field of view to 1 on each level for smooth transition

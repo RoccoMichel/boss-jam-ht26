@@ -1,3 +1,4 @@
+using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -17,14 +18,20 @@ public class PlayerTrigger : MonoBehaviour
         if (oneShot && triggered) return;
 
         if (debug) Debug.Log(gameObject.name + " triggered.");
-        TriggerEvents();
         player = other.GetComponent<Player>();
+        TriggerEvents();
         triggered = true;
     }
 
     public void TriggerEvents() => events.Invoke();
 
     // Events
+
+    public void InfoText(string information)
+    {
+        GameObject go = Instantiate(Resources.Load<GameObject>("Effects/Info Text"), transform.position + (Vector3.up * 0.5f), Quaternion.identity);
+        go.GetComponent<InfoText>().StartEffect(information);
+    }
 
     public void EnableAbility(string name)
     {
@@ -68,6 +75,11 @@ public class PlayerTrigger : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
+
     public void TriggerEffect(ParticleSystem effect)
     {
         effect.Play();
@@ -77,5 +89,11 @@ public class PlayerTrigger : MonoBehaviour
     {
         try { SceneManager.LoadScene(sceneName); }
         catch { Debug.LogError($"{gameObject.name} is trying to load scene \"{sceneName}\" but it failed"); }
+    }
+
+    public void LoadNextScene()
+    {
+        try { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); }
+        catch { Debug.LogError($"{gameObject.name} is trying to load the next scene but it failed"); }
     }
 }

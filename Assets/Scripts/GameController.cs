@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
@@ -7,22 +6,18 @@ public class GameController : MonoBehaviour
     public bool debug;
 
     [Header("References")]
+    public Settings settings;
     public static GameController instance;
-    private InputAction debugAction;
 
     private void Awake()
     {
         instance = this;
     }
 
-    private void Start()
-    {
-        debugAction = InputSystem.actions.FindAction("Debug");
-    }
-
     private void Update()
     {
-        if (debugAction.WasPressedThisFrame()) debug = !debug;
+        //Application.targetFrameRate = settings.targetFrameRate;
+        if (Input.GetKeyDown(KeyCode.F1)) debug = !debug;
     }
 
     private void OnGUI()
