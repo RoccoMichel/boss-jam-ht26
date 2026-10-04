@@ -8,18 +8,29 @@ public class GameController : MonoBehaviour
     [Header("References")]
     public Settings settings;
     public static GameController instance;
+    public GameObject[] respawnItems;
+
+    private Player player;
 
     private void Awake()
     {
         instance = this;
     }
 
+    private void Start()
+    {
+        respawnItems = GameObject.FindGameObjectsWithTag("Respawn");
+    }
+
     private void Update()
     {
-        //Application.targetFrameRate = settings.targetFrameRate;
         if (Input.GetKeyDown(KeyCode.F1)) debug = !debug;
     }
 
+    public void ResetLevel()
+    {
+        foreach (GameObject go in respawnItems) go.SetActive(true);        
+    }
     private void OnGUI()
     {
         if (!debug) return;

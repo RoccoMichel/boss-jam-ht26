@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4445129023486087262}
   m_Layer: 0
   m_Name: PickUp
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTrigger
   debug: 0
-  oneShot: 1
+  oneShot: 0
+  pickUpEffect: {fileID: 2195187831117763508, guid: 54dd635e9c0c4184d9a90fc4deb330eb, type: 3}
   events:
     m_PersistentCalls:
       m_Calls:
@@ -79,11 +80,23 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 7804471989921586452}
         m_TargetAssemblyTypeName: PlayerTrigger, Assembly-CSharp
-        m_MethodName: DestroySelf
-        m_Mode: 1
+        m_MethodName: PlaySFX
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 32a612a93a6146241bb199cc30322d91, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7804471989921586452}
+        m_TargetAssemblyTypeName: PlayerTrigger, Assembly-CSharp
+        m_MethodName: ToggleGameObjects
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5452497352693647174}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -126,7 +139,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5452497352693647174}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -143,7 +156,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d91c2ba6f2110604fb1a970aa18f6c82, type: 2}
+  - {fileID: 2100000, guid: f6edac813d55eb94eae3836827519904, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

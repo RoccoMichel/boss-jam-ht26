@@ -9,11 +9,32 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 9b42e6ee112164a4e8acf9e64c324364
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
     path: Assets/Scenes/Level 1.unity
-    guid: e2e8cbb8a98bb2240b94ca1a3f058bcb
+    guid: 8e74fa67d6553de4daadbfb8f7d1ddb1
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: f4a8b275aada5974ca839ee5ed70416d
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 0c0e70766f6e0254ca12484678f1e76d
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: 3ce7c599ac621044793230b19f1f7b39
+  - enabled: 1
+    path: Assets/Scenes/Level 5.unity
+    guid: 6e959d8eb82d9524cba83d296e41fbee
+  - enabled: 1
+    path: Assets/Scenes/Level 6.unity
+    guid: 17af901ca9e29dc4fabc2663d8ac1b6d
+  - enabled: 1
+    path: Assets/Scenes/Level 7.unity
+    guid: 7c0718893ff11a94eb6029a922144d01
+  - enabled: 1
+    path: Assets/Scenes/Level 8.unity
+    guid: b9e3c2802f5cf104596ae96833eb3098
+  - enabled: 1
+    path: Assets/Scenes/Level 9.unity
+    guid: 17561b5b502b8244cbe408061e4bd550
   - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: c0f3a641859bcbd4a8d7f80a8fe5b9e5

@@ -8,6 +8,7 @@ public class PlayerTrigger : MonoBehaviour
     [Tooltip("Log when triggered")]
     public bool debug;
     public bool oneShot = true;
+    public GameObject pickUpEffect;
     public UnityEvent events = new();
     private bool triggered;
     private Player player;
@@ -15,12 +16,15 @@ public class PlayerTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        if (oneShot && triggered) return;
+        if (oneShot && triggered) return;        
 
+        if (pickUpEffect != null) Instantiate(pickUpEffect, transform.position, Quaternion.Euler(Vector3.left * 90));
         if (debug) Debug.Log(gameObject.name + " triggered.");
+
         player = other.GetComponent<Player>();
         TriggerEvents();
         triggered = true;
+
     }
 
     public void TriggerEvents() => events.Invoke();
@@ -56,6 +60,7 @@ public class PlayerTrigger : MonoBehaviour
         if (clip == null) return;
 
         GameObject source = new(clip.name + " | Event SFX");
+        source.AddComponent<DontDestroy>();
         AudioSource audioSource = source.AddComponent<AudioSource>();
         audioSource.clip = clip;
         audioSource.loop = false;

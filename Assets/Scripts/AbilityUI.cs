@@ -21,7 +21,7 @@ public class AbilityUI : MonoBehaviour
 
         if (ability.discovered)
         {
-            string inputName = ability.input.ToString().ToLower();
+            string inputName = ability.input.ToString().ToLower().Replace("alpha", "");
             inputIcon = Resources.Load<Sprite>($"Inputs/keyboard_{inputName}");
         }
 

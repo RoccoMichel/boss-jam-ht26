@@ -4,4 +4,5 @@ using UnityEngine;
 public class Settings : ScriptableObject
 {
     public int targetFrameRate = 60;
+    public bool vSync = false;
 }
