@@ -1743,7 +1743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7804471989921586452, guid: 1fe94800433501d44ae7e3d926cc404b, type: 3}
       propertyPath: events.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: '+ Move RIght [9]'
+      value: '+ Move Right [9]'
       objectReference: {fileID: 0}
     - target: {fileID: 7804471989921586452, guid: 1fe94800433501d44ae7e3d926cc404b, type: 3}
       propertyPath: events.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -3681,7 +3681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400063944500794942, guid: ed38f8cf3baa92d40aab3bee712a072b, type: 3}
       propertyPath: abilities.Array.data[1].input
-      value: 32
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 400063944500794942, guid: ed38f8cf3baa92d40aab3bee712a072b, type: 3}
       propertyPath: abilities.Array.data[2].input
